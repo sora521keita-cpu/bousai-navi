@@ -1,0 +1,107 @@
+import type { LibraryCategory, LibraryItem, UserAttribute } from '../types';
+
+export const libraryCategoryLabels: Record<LibraryCategory | 'recommended', string> = {
+  recommended: 'あなた向け',
+  earthquake: '地震',
+  tsunami: '津波',
+  flood: '水害',
+  landslide: '土砂災害',
+  lifeline: '停電・断水',
+  stockpile: '備蓄',
+  family: '家族',
+  workplace: '職場',
+  apartment: 'マンション',
+  pet: 'ペット',
+  elderly: '高齢家族',
+  foreignResident: '外国人共有',
+};
+
+export const libraryCategories: (LibraryCategory | 'recommended')[] = [
+  'recommended',
+  'earthquake',
+  'flood',
+  'tsunami',
+  'lifeline',
+  'stockpile',
+  'family',
+  'workplace',
+  'apartment',
+  'pet',
+  'elderly',
+  'foreignResident',
+];
+
+export const userAttributeLabels: Record<UserAttribute, string> = {
+  single: '一人暮らし',
+  family: '家族あり',
+  elderlyFamily: '高齢の家族がいる',
+  pet: 'ペットがいる',
+  apartment: 'マンション住まい',
+  car: '車を使う',
+  workplace: '職場でも使う',
+};
+
+export const userAttributes: UserAttribute[] = ['single', 'family', 'elderlyFamily', 'pet', 'apartment', 'car', 'workplace'];
+
+export const libraryItems: LibraryItem[] = [
+  {
+    id: 'tokyo-stockpile-tool',
+    title: '東京備蓄ナビ「自分に合った備蓄を調べてみよう」',
+    summary: '世帯構成、住まい、ペット有無などに合わせて備蓄品目と必要量を確認できる東京都の公式ツールです。',
+    category: ['stockpile', 'family', 'pet', 'elderly'],
+    targetUsers: ['single', 'family', 'elderlyFamily', 'pet', 'apartment'],
+    sourceName: '東京都',
+    sourceUrl: 'https://www.bichiku.metro.tokyo.lg.jp/tool/',
+    trustRank: 'A',
+    estimatedReadMinutes: 5,
+    canSaveOffline: false,
+  },
+  {
+    id: 'tokyo-bousai-books',
+    title: '東京都防災ホームページ「東京くらし防災」・「東京防災」の閲覧',
+    summary: '防災ブック、PDF、電子書籍、多言語版への導線をまとめた東京都防災ホームページです。',
+    category: ['earthquake', 'stockpile', 'family', 'apartment', 'elderly', 'foreignResident'],
+    targetUsers: ['single', 'family', 'elderlyFamily', 'apartment', 'workplace'],
+    sourceName: '東京都',
+    sourceUrl: 'https://www.bousai.metro.tokyo.lg.jp/1028036/1028051/index.html',
+    trustRank: 'A',
+    estimatedReadMinutes: 8,
+    canSaveOffline: false,
+  },
+  {
+    id: 'earthquake-first-action',
+    title: '地震にあったら最初に見る行動メモ',
+    summary: '揺れている時と揺れがおさまった直後に、外部リンクを開かず確認できる短い行動メモです。',
+    category: ['earthquake', 'family'],
+    targetUsers: ['single', 'family', 'elderlyFamily', 'apartment', 'workplace'],
+    sourceName: 'アプリ内メモ（公的資料を確認する前提）',
+    sourceUrl: '#',
+    trustRank: 'B',
+    estimatedReadMinutes: 2,
+    canSaveOffline: true,
+  },
+  {
+    id: 'lifeline-checklist',
+    title: '停電・断水時の確認チェック',
+    summary: '電池節約、飲み水、トイレ用水など、通信不能時にも確認したい最低限のチェック項目です。',
+    category: ['lifeline', 'stockpile', 'apartment'],
+    targetUsers: ['single', 'family', 'elderlyFamily', 'apartment'],
+    sourceName: 'アプリ内メモ（自治体公式情報を確認する前提）',
+    sourceUrl: '#',
+    trustRank: 'B',
+    estimatedReadMinutes: 3,
+    canSaveOffline: true,
+  },
+  {
+    id: 'workplace-basic',
+    title: '職場で共有する防災メモ',
+    summary: '出勤中・勤務中に確認したい集合場所、安否確認、帰宅判断の観点を整理するためのメモです。',
+    category: ['workplace', 'family'],
+    targetUsers: ['workplace', 'car'],
+    sourceName: 'アプリ内メモ（勤務先ルールを確認する前提）',
+    sourceUrl: '#',
+    trustRank: 'B',
+    estimatedReadMinutes: 3,
+    canSaveOffline: true,
+  },
+];
